@@ -12,7 +12,7 @@
       </div>
     </section>
     <section v-if="destination.extras" class="extras">
-      <h2>Top :3 in {{ destination.name }}</h2>
+      <h2>Contents of {{ destination.name.toLowerCase() }}:</h2>
       <div class="cards">
         <AppLink
           v-for="extra in destination.extras"
