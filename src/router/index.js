@@ -7,6 +7,15 @@ function getSlugPageById(slug) {
   );
 }
 
+function getNotFoundPage(to) {
+  return {
+    name: "NotFound",
+    params: { pathMatch: to.path.split("/").slice(1) },
+    query: to.query,
+    hash: to.hash,
+  };
+}
+
 const routes = [
   {
     path: "/:slug",
@@ -19,13 +28,7 @@ const routes = [
       const exists = sourceData.destinations.find(
         (destination) => destination.slug === to.params.slug,
       );
-      if (!exists)
-        return {
-          name: "NotFound",
-          params: { pathMatch: to.path.split("/").slice(1) },
-          query: to.query,
-          hash: to.hash,
-        };
+      if (!exists) return getNotFoundPage(to);
     },
     children: [
       {
@@ -36,6 +39,14 @@ const routes = [
           ...route.params,
           id: getSlugPageById(route.params.slug).id,
         }),
+        beforeEnter(to) {
+          const exists = sourceData.destinations[
+            getSlugPageById(to.params.slug).id - 1
+          ].extras?.find((extra) => {
+            return extra.slug === to.params.extraSlug;
+          });
+          if (!exists) return getNotFoundPage(to);
+        },
       },
     ],
   },
