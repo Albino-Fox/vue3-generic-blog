@@ -49,7 +49,7 @@ const routes = [
       {
         path: ":experienceSlug",
         name: "experience.show",
-        component: () => import("@/views/ExperienceShow.vue"),
+        component: () => import("@/views/ExtraShow.vue"),
         props: (route) => ({
           ...route.params,
           id: parseInt(route.params.id),

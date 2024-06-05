@@ -18,7 +18,7 @@
             params: { experienceSlug: experience.slug },
           }"
         >
-          <ExperienceCard :experience="experience"></ExperienceCard>
+          <ExtraCard :experience="experience"></ExtraCard>
         </AppLink>
       </div>
       <router-view v-slot="{ Component }">
@@ -32,10 +32,10 @@
 
 <script>
 import sourceData from "@/data.json";
-import ExperienceCard from "@/components/ExperienceCard.vue";
+import ExtraCard from "@/components/ExtraCard.vue";
 
 export default {
-  components: { ExperienceCard },
+  components: { ExtraCard },
   props: {
     id: { type: Number, required: true },
   },
