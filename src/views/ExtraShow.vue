@@ -1,9 +1,13 @@
 <template>
   <div>
     <section>
-      <h1>{{ experience.name }}</h1>
-      <img :src="`/images/${experience.image}`" :alt="experience.name" />
-      <p>{{ experience.description }}</p>
+      <h1>{{ extra.name }}</h1>
+      <img
+        v-if="extra.image"
+        :src="`/images/${extra.image}`"
+        :alt="extra.name"
+      />
+      <p>{{ extra.description }}</p>
     </section>
   </div>
 </template>
@@ -13,7 +17,7 @@ import sourceData from "@/data.json";
 export default {
   props: {
     id: { type: Number, required: true },
-    experienceSlug: { type: String, required: true },
+    extraSlug: { type: String, required: true },
   },
   computed: {
     destination() {
@@ -21,9 +25,9 @@ export default {
         (destination) => destination.id === this.id,
       );
     },
-    experience() {
-      return this.destination.experiences.find(
-        (experience) => experience.slug === this.experienceSlug,
+    extra() {
+      return this.destination.extras.find(
+        (extra) => extra.slug === this.extraSlug,
       );
     },
   },

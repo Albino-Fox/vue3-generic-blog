@@ -1,27 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "@/views/HomeView.vue";
 import sourceData from "@/data.json";
 
+function getSlugId(slug) {
+  return sourceData.destinations.find(
+    (destination) => destination.slug === slug,
+  );
+}
+
 const routes = [
-  { path: "/", name: "Home", component: HomeView },
   {
-    path: "/protected",
-    name: "protected",
-    component: () => import("@/views/ProtectedView.vue"),
-    meta: {
-      requiresAuth: true,
-    },
-  },
-  {
-    path: "/login",
-    name: "login",
-    component: () => import("@/views/LoginPage.vue"),
-    beforeEnter: (from) => {
-      if (window.user) {
-        console.log("authorized!");
-        return { name: from };
-      }
-    },
+    path: "/main",
+    alias: "/",
+    redirect: `/destination/${getSlugId("main").id}/main`,
   },
   {
     path: "/destination/:id/:slug",
@@ -47,8 +37,8 @@ const routes = [
     },
     children: [
       {
-        path: ":experienceSlug",
-        name: "experience.show",
+        path: ":extraSlug",
+        name: "extra.show",
         component: () => import("@/views/ExtraShow.vue"),
         props: (route) => ({
           ...route.params,
@@ -62,20 +52,12 @@ const routes = [
     name: "NotFound",
     component: () => import("@/views/NotFound.vue"),
   },
-  {
-    path: "/invoices",
-    name: "invoices",
-    component: () => import("@/views/InvoicesView.vue"),
-    meta: {
-      requiresAuth: true,
-    },
-  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  linkActiveClass: "vue-school-active-link",
+  linkActiveClass: "color: red",
   scrollBehavior(to, from, savedPosition) {
     if (to.params.id !== from.params.id) {
       return (

@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <AppLink id="logo" to="/">Vue School Travel App</AppLink>
+    <AppLink to="/main">GenericBlogTM</AppLink>
     <AppLink
       v-for="destination in destinations"
       :key="destination.id"
@@ -11,8 +11,6 @@
     >
       {{ destination.name }}
     </AppLink>
-    <AppLink :to="{ name: 'protected' }">Dashboard</AppLink>
-    <AppLink :to="{ name: 'login' }">Log in</AppLink>
   </div>
 </template>
 

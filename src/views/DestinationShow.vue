@@ -3,22 +3,26 @@
     <section class="destination">
       <h1>{{ destination.name }}</h1>
       <div class="destination-details">
-        <img :src="`/images/${destination.image}`" alt="destination.name" />
+        <img
+          v-if="destination.image"
+          :src="`/images/${destination.image}`"
+          alt="destination.name"
+        />
         <p>{{ destination.description }}</p>
       </div>
     </section>
-    <section class="experiences">
+    <section v-if="destination.extras" class="extras">
       <h2>Top :3 in {{ destination.name }}</h2>
       <div class="cards">
         <AppLink
-          v-for="experience in destination.experiences"
-          :key="experience.slug"
+          v-for="extra in destination.extras"
+          :key="extra.slug"
           :to="{
-            name: 'experience.show',
-            params: { experienceSlug: experience.slug },
+            name: 'extra.show',
+            params: { extraSlug: extra.slug },
           }"
         >
-          <ExtraCard :experience="experience"></ExtraCard>
+          <ExtraCard :extra="extra"></ExtraCard>
         </AppLink>
       </div>
       <router-view v-slot="{ Component }">

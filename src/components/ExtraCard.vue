@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <img :src="`/images/${experience.image}`" :alt="experience.name" />
+    <img :src="`/images/${extra.image}`" :alt="extra.name" />
     <span class="card__text">
-      {{ experience.name }}
+      {{ extra.name }}
     </span>
   </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    experience: { type: Object, required: true },
+    extra: { type: Object, required: true },
   },
 };
 </script>
