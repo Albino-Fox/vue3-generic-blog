@@ -13,10 +13,7 @@ const routes = [
     name: "destination.show",
     component: () => import("@/views/DestinationShow.vue"),
     props: (route) => ({
-      // ...route.params,
       id: getSlugPageById(route.params.slug).id,
-      // id: 1,
-      // id: parseInt(route.params.id),
     }),
     beforeEnter(to) {
       const exists = sourceData.destinations.find(
@@ -38,7 +35,6 @@ const routes = [
         props: (route) => ({
           ...route.params,
           id: getSlugPageById(route.params.slug).id,
-          // id: 1,
         }),
       },
     ],
@@ -54,16 +50,16 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   linkActiveClass: "color: red",
-  // scrollBehavior(to, from, savedPosition) {
-  //   if (to.params.id !== from.params.id) {
-  //     return (
-  //       savedPosition ||
-  //       new Promise((resolve) => {
-  //         setTimeout(() => resolve({ top: 0 }));
-  //       })
-  //     );
-  //   }
-  // },
+  scrollBehavior(to, from, savedPosition) {
+    if (to.params.slug !== from.params.slug) {
+      return (
+        savedPosition ||
+        new Promise((resolve) => {
+          setTimeout(() => resolve({ top: 0 }));
+        })
+      );
+    }
+  },
 });
 
 // router.beforeEach((to) => {
