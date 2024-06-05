@@ -1,17 +1,21 @@
 <template>
-  <div id="nav">
-    <AppLink to="/main">GenericBlogTM</AppLink>
-    <AppLink
-      v-for="destination in destinations"
-      :key="destination.id"
-      :to="{
-        name: 'destination.show',
-        params: { id: destination.id, slug: destination.slug },
-      }"
-    >
-      {{ destination.name }}
-    </AppLink>
-  </div>
+  <v-card>
+    <v-layout>
+      <div id="nav">
+        <AppLink to="/main">GenericBlogTM</AppLink>
+        <AppLink
+          v-for="destination in destinations"
+          :key="destination.id"
+          :to="{
+            name: 'destination.show',
+            params: { id: destination.id, slug: destination.slug },
+          }"
+        >
+          {{ destination.name }}
+        </AppLink>
+      </div>
+    </v-layout>
+  </v-card>
 </template>
 
 <script>
