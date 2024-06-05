@@ -1,8 +1,18 @@
 <template>
-  <v-card>
-    <v-layout>
-      <div id="nav">
-        <AppLink to="/main">GenericBlogTM</AppLink>
+  <v-navigation-drawer
+    flat
+    absolute="true"
+    fixed
+    width="250"
+    location="right"
+    permanent
+  >
+    <v-list density="compact" nav>
+      <v-list-item>
+        <AppLink to="/main"><h3>GenericBlog&trade;</h3></AppLink>
+      </v-list-item>
+      <v-divider></v-divider>
+      <v-list-item>
         <AppLink
           v-for="destination in destinations"
           :key="destination.id"
@@ -13,9 +23,9 @@
         >
           {{ destination.name }}
         </AppLink>
-      </div>
-    </v-layout>
-  </v-card>
+      </v-list-item>
+    </v-list>
+  </v-navigation-drawer>
 </template>
 
 <script>

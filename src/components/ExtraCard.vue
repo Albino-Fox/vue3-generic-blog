@@ -1,10 +1,10 @@
 <template>
-  <div class="card">
+  <v-card>
     <!-- <img :src="`/images/${extra.image}`" :alt="extra.name" /> -->
     <span class="card__text">
       {{ extra.name }}
     </span>
-  </div>
+  </v-card>
 </template>
 
 <script>

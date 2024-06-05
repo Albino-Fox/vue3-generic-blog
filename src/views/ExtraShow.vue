@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-layout>
     <section>
       <h1>{{ extra.name }}</h1>
       <img
@@ -9,7 +9,7 @@
       />
       <p>{{ extra.description }}</p>
     </section>
-  </div>
+  </v-layout>
 </template>
 
 <script>
