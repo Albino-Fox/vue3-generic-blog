@@ -17,6 +17,7 @@ function getNotFoundPage(to) {
 }
 
 const routes = [
+  { path: "/", redirect: "/main" },
   {
     path: "/:slug",
     name: "destination.show",
