@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import sourceData from "@/data.json";
 
-function getSlugId(slug) {
+function getSlugPageById(slug) {
   return sourceData.destinations.find(
     (destination) => destination.slug === slug,
   );
@@ -9,23 +9,18 @@ function getSlugId(slug) {
 
 const routes = [
   {
-    path: "/main",
-    alias: "/",
-    redirect: `/destination/${getSlugId("main").id}/main`,
-  },
-  {
-    path: "/destination/:id/:slug",
+    path: "/:slug",
     name: "destination.show",
     component: () => import("@/views/DestinationShow.vue"),
     props: (route) => ({
       // ...route.params,
-      id: parseInt(route.params.id),
+      id: getSlugPageById(route.params.slug).id,
+      // id: 1,
+      // id: parseInt(route.params.id),
     }),
     beforeEnter(to) {
       const exists = sourceData.destinations.find(
-        (destination) =>
-          destination.id === parseInt(to.params.id) &&
-          destination.slug === to.params.slug,
+        (destination) => destination.slug === to.params.slug,
       );
       if (!exists)
         return {
@@ -42,7 +37,8 @@ const routes = [
         component: () => import("@/views/ExtraShow.vue"),
         props: (route) => ({
           ...route.params,
-          id: parseInt(route.params.id),
+          id: getSlugPageById(route.params.slug).id,
+          // id: 1,
         }),
       },
     ],
@@ -58,22 +54,19 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   linkActiveClass: "color: red",
-  scrollBehavior(to, from, savedPosition) {
-    if (to.params.id !== from.params.id) {
-      return (
-        savedPosition ||
-        new Promise((resolve) => {
-          setTimeout(() => resolve({ top: 0 }));
-        })
-      );
-    }
-  },
+  // scrollBehavior(to, from, savedPosition) {
+  //   if (to.params.id !== from.params.id) {
+  //     return (
+  //       savedPosition ||
+  //       new Promise((resolve) => {
+  //         setTimeout(() => resolve({ top: 0 }));
+  //       })
+  //     );
+  //   }
+  // },
 });
 
-router.beforeEach((to) => {
-  if (to.meta.requiresAuth && !window.user) {
-    return { name: "login", query: { redirect: to.fullPath } };
-  }
-});
+// router.beforeEach((to) => {
+// });
 
 export default router;
