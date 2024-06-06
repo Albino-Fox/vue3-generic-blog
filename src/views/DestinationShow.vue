@@ -4,7 +4,8 @@
       <h1>{{ destination.name }}</h1>
       <div class="destination-details">
         <v-img
-          :width="500"
+          :width="850"
+          :height="300"
           class="rounded-lg"
           v-if="destination.image"
           :src="`${destination.image}`"

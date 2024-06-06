@@ -10,14 +10,14 @@
           "name": "Additional 1",
           "id": 1,
           "slug": "aSB3",
-          "image": "https://placehold.co/600x400",
+          "image": "https://placehold.co/600x1000",
           "description": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
         },
         {
           "name": "Additional 2",
           "id": 2,
           "slug": "YW50",
-          "image": "https://placehold.co/600x400",
+          "image": "https://placehold.co/1200x300",
           "description": "Lorem ipsum dolor sit amet, qui minim labore adipisicing Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.minim sint cillum sint consectetur cupidatat."
         },
         {
@@ -69,7 +69,7 @@
         {
           "name": "Qyoh",
           "slug": "4s0=",
-          "image": "https://placehold.co/600x400",
+          "image": "https://placehold.co/300x950",
           "description": "Lorem ipsum dolor sit amet, qui minim labore. Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat. Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillumetur cupidatat."
         },
         {
@@ -81,7 +81,7 @@
         {
           "name": "Aberoe Abyssicola 2",
           "slug": "ASDa",
-          "image": "https://placehold.co/600x400",
+          "image": "https://placehold.co/800x400",
           "description": "Suspendisse lobortis pharetra tempor. Cras eleifend ante sed arcu interdum, in bibendum enim ultricies. Integer rutrum quis risus at tempor. Maecenas facilisis, nisi vel pellentesque maximus, lectus felis malesuada purus, a pulvinar elit est quis turpis. Duis convallis purus quis finibus consequat. Pellentesque faucibus tincidunt augue non consequat. Donec fringilla at est sit amet blandit. Nunc at porttitor ligula. Fusce sed odio turpis. Suspendisse lobortis pharetra tempor. Cras eleifend ante sed arcu interdum, in bibendum enim ultricies. Integer rutrum quis risus at tempor. Maecenas facilisis, nisi vel pellentesque maximus, lectus felis malesuada purus, a pulvinar elit est quis turpis. Duis convallis purus quis finibus consequat. Pellentesque faucibus tincidunt augue non consequat. Donec fringilla at est sit amet blandit. Nunc at porttitor ligula. Fusce sed odio turpis."
         },
         {
@@ -95,7 +95,7 @@
     {
       "name": "About",
       "slug": "about",
-      "image": "https://placehold.co/600x400",
+      "image": "https://placehold.co/100x100",
       "id": 4,
       "description": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
     }

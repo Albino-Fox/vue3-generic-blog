@@ -2,7 +2,13 @@
   <v-layout>
     <section>
       <h1>{{ extra.name }}</h1>
-      <v-img v-if="extra.image" :src="`${extra.image}`"></v-img>
+      <v-img
+        v-if="extra.image"
+        cover
+        :width="750"
+        :height="400"
+        :src="`${extra.image}`"
+      ></v-img>
       <p class="py-3">{{ extra.description }}</p>
     </section>
   </v-layout>
