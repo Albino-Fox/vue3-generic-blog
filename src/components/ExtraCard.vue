@@ -1,8 +1,5 @@
 <template>
-  <!-- <img :src="`/images/${extra.image}`" :alt="extra.name" /> -->
-  <span class="card__text">
-    {{ extra.name }}
-  </span>
+  {{ extra.name }}
 </template>
 
 <script>
