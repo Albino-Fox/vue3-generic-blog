@@ -70,6 +70,13 @@ const router = createRouter({
           setTimeout(() => resolve({ top: 0 }));
         })
       );
+    } else if (to.params.extraSlug !== from.params.extraSlug) {
+      return (
+        savedPosition ||
+        new Promise((resolve) => {
+          setTimeout(() => resolve({ top: 9999, behavior: "smooth" }), 301);
+        })
+      );
     }
   },
 });
