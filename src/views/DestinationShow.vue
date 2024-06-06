@@ -1,37 +1,41 @@
 <template>
-  <div>
-    <section class="destination">
+  <v-list>
+    <v-list-item>
       <h1>{{ destination.name }}</h1>
       <div class="destination-details">
-        <img
+        <v-img
+          :width="500"
+          class="rounded-lg"
           v-if="destination.image"
-          :src="`/images/${destination.image}`"
+          :src="`${destination.image}`"
           alt="destination.name"
-        />
-        <p>{{ destination.description }}</p>
+        ></v-img>
+        <p class="py-3">{{ destination.description }}</p>
       </div>
-    </section>
-    <section v-if="destination.extras" class="extras">
-      <h2>Contents of {{ destination.name.toLowerCase() }}:</h2>
-      <div class="cards">
-        <AppLink
-          v-for="extra in destination.extras"
-          :key="extra.slug"
-          :to="{
-            name: 'extra.show',
-            params: { extraSlug: extra.slug },
-          }"
-        >
-          <ExtraCard :extra="extra"></ExtraCard>
-        </AppLink>
-      </div>
-      <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
-          <component :is="Component" :key="$route.path"></component>
-        </transition>
-      </router-view>
-    </section>
-  </div>
+    </v-list-item>
+    <v-divider v-if="destination.extras" class="pb-3"></v-divider>
+    <v-list-item v-if="destination.extras">
+      <AppLink
+        v-for="extra in destination.extras"
+        :key="extra.slug"
+        :to="{
+          name: 'extra.show',
+          params: { extraSlug: extra.slug },
+        }"
+      >
+        <ExtraCard :extra="extra"></ExtraCard>
+      </AppLink>
+    </v-list-item>
+    <v-list-item>
+      <v-card class="pt-3">
+        <router-view v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" :key="$route.path"></component>
+          </transition>
+        </router-view>
+      </v-card>
+    </v-list-item>
+  </v-list>
 </template>
 
 <script>

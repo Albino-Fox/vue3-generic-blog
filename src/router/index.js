@@ -61,7 +61,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  linkActiveClass: "color: red",
+  linkActiveClass: "current-link",
   scrollBehavior(to, from, savedPosition) {
     if (to.params.slug !== from.params.slug) {
       return (
