@@ -4,9 +4,10 @@
       <h1>{{ extra.name }}</h1>
       <v-img
         v-if="extra.image"
-        cover
         :width="750"
         :height="400"
+        cover
+        aspect-ratio="16/9"
         :src="`${extra.image}`"
       ></v-img>
       <p class="py-3">{{ extra.description }}</p>
