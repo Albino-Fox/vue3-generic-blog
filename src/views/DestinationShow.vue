@@ -15,6 +15,7 @@
     </v-list-item>
     <v-divider v-if="destination.extras" class="pb-3"></v-divider>
     <v-list-item v-if="destination.extras">
+      <h4>Click them:</h4>
       <AppLink
         v-for="extra in destination.extras"
         :key="extra.slug"
