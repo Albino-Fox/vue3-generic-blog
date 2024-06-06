@@ -1,18 +1,17 @@
 <template>
-  <v-layout>
-    <section>
-      <h1>{{ extra.name }}</h1>
-      <v-img
-        v-if="extra.image"
-        :width="750"
-        :height="400"
-        cover
-        aspect-ratio="16/9"
-        :src="`${extra.image}`"
-      ></v-img>
-      <p class="py-3">{{ extra.description }}</p>
-    </section>
-  </v-layout>
+  <section>
+    <v-divider class="pb-3"></v-divider>
+    <h1>{{ extra.name }}</h1>
+    <v-img
+      v-if="extra.image"
+      :width="750"
+      :height="400"
+      cover
+      aspect-ratio="16/9"
+      :src="`${extra.image}`"
+    ></v-img>
+    <p class="py-3">{{ extra.description }}</p>
+  </section>
 </template>
 
 <script>

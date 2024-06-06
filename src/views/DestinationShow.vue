@@ -14,7 +14,7 @@
         <p class="py-3">{{ destination.description }}</p>
       </div>
     </v-list-item>
-    <v-divider v-if="destination.extras" class="pb-3"></v-divider>
+    <v-divider v-if="destination.extras" class="pb-3 ml-3"></v-divider>
     <v-list-item v-if="destination.extras">
       <h4>Click them:</h4>
       <AppLink
