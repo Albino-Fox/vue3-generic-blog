@@ -81,7 +81,4 @@ const router = createRouter({
   },
 });
 
-// router.beforeEach((to) => {
-// });
-
 export default router;
