@@ -16,9 +16,3 @@ export default {
   components: { TheNavigation },
 };
 </script>
-
-<style lang="css">
-.current-link {
-  color: deepskyblue;
-}
-</style>

@@ -1,0 +1,16 @@
+.logo {
+  color: black;
+}
+
+.current-link {
+  color: deepskyblue !important;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #808080;
+}

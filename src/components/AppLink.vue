@@ -22,10 +22,3 @@ export default {
   },
 };
 </script>
-
-<style lang="css">
-a {
-  text-decoration: none;
-  color: black;
-}
-</style>
